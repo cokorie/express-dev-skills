@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+ <h2>Hello</h2>
+<ul>
+  <% skills.forEach(function(s){ %>
+        <li>
+            <a href="/skills/<%= s.id %>">
+            <%= s.skill %>
+            - 
+            <%= s.mastered ? 'true' : 'false' %>
+            </a>
+        </li>
+ <% }); %>
+</ul>
+
+<%- include('../partials/footer') %>
