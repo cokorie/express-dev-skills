@@ -6,6 +6,19 @@ module.exports = {
     new: newSkill,
     create,
     delete: deleteSkill,
+    edit,
+    update
+}
+
+function update(req, res) {
+    req.body.mastered = !!req.body.mastered;
+    Skill.update(req.params.id, req.body);
+    res.redirect(`/skills/${req.params.id}`);
+}
+
+function edit(req, res) {
+    const skill = Skill.getOne(req.params.id);
+    res.render('skills/edit', { skill });
 }
 
 function deleteSkill(req, res) {

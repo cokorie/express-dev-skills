@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<h2>Edit Skill</h2>
+
+<!-- the action attr defines the path of the HTTP request -->
+<form action="/skills/<%= skill.id %>?_method=PUT" method="POST">
+  <!-- the name attr determines the name of the property on req.body -->
+  <input type="checkbox" name="mastered" <%= skill.mastered ? 'checked' : '' %>>
+  <input type="text" name="skill" value="<%= skill.skill %>">
+  <button type="submit">Edit Skill</button>
+</form>
+
+<%- include('../partials/footer') %>
